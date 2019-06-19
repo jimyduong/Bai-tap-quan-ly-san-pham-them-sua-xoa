@@ -2,9 +2,9 @@
 include_once "class/DatabaseConnect.php";
 include_once 'class/ProductControler.php';
 
-$connect=new DatabaseConnect();
-$sql = "SELECT * FROM Product";
-$datas = $connect->Connect()->query($sql)->fetchAll();
+$display=new ProductControler();
+$datas=$display->displayProduct();
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -32,29 +32,14 @@ $datas = $connect->Connect()->query($sql)->fetchAll();
         <td class="tdwidth"><?php echo $value["name"]?></td>
         <td class="tdwidth"><?php echo $value["Price"]?></td>
         <td>
-<!--        <td name="--><?php //echo $value['id']?><!--">-->
             <a href="app/edit.php?page=edit&id=<?php echo $value['id']?>">
                 <button type="submit">Edit</button>
             </a>
-<!--        </td>-->
-<!--        <td name="--><?php //echo $value['id']?><!--">-->
             <a href="app/delete.php?page=delete&id=<?php echo $value['id']?>">
                 <button type="submit">Delete</button>
             </a>
-<!--        </td>-->
         </td>
-
-
-<!--        <td name="--><?php //echo $value['id']?><!--">-->
-<!--            <a href="app/edit.php?page=edit&id=--><?php //echo $value['id']?><!--">-->
-<!--                <button type="submit">Edit</button>-->
-<!--            </a>-->
-<!--        </td>-->
-<!--        <td name="--><?php //echo $value['id']?><!--">-->
-<!--            <a href="app/delete.php?page=delete&id=--><?php //echo $value['id']?><!--">-->
-<!--                <button type="submit">Delete</button>-->
-<!--            </a>-->
-<!--        </td>-->
+     </td>
     </tr>
     <?php }?>
     <style>

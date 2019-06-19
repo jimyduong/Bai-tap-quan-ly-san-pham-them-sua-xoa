@@ -44,4 +44,10 @@ class ProductControler
         $result = $showProduct->fetch();
         return $result;
     }
+    public function displayProduct(){
+        $connect=new DatabaseConnect();
+        $sql = "SELECT * FROM Product";
+        $datas = $connect->Connect()->query($sql)->fetchAll();
+        return $datas;
+    }
 }
